@@ -188,3 +188,106 @@ body {
   color: var(--color-text-muted);
 }
 
+/* ===========================
+   Task List
+   =========================== */
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ===========================
+   Task Item
+   =========================== */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: background var(--transition), border-color var(--transition), opacity var(--transition);
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-item:hover {
+  background: var(--color-surface-hover);
+  border-color: #383854;
+}
+
+/* Checkbox */
+.task-checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.task-checkbox:hover {
+  border-color: var(--color-success);
+}
+
+.task-item.completed .task-checkbox {
+  background: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.task-item.completed .task-checkbox::after {
+  content: '✓';
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Task Text */
+.task-text {
+  flex: 1;
+  font-size: 0.95rem;
+  word-break: break-word;
+  transition: color var(--transition), text-decoration var(--transition);
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+/* Delete Button */
+.btn-delete {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  background: transparent;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transition: opacity var(--transition), color var(--transition);
+}
+
+.task-item:hover .btn-delete {
+  opacity: 1;
+}
+
+.btn-delete:hover {
+  color: var(--color-accent);
+}
+
