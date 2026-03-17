@@ -93,3 +93,61 @@ function renderTasks() {
   });
 }
 
+// ===========================
+// Add a New Task
+// ===========================
+function addTask(text) {
+  const task = {
+    id: Date.now(),        // unique id based on timestamp
+    text: text,
+    completed: false
+  };
+  tasks.push(task);
+  saveTasks();
+  renderTasks();
+}
+
+// ===========================
+// Toggle Task Completed
+// ===========================
+function toggleTask(id) {
+  tasks = tasks.map(function (task) {
+    if (task.id === id) {
+      return { id: task.id, text: task.text, completed: !task.completed };
+    }
+    return task;
+  });
+  saveTasks();
+  renderTasks();
+}
+
+// ===========================
+// Delete a Task
+// ===========================
+function deleteTask(id) {
+  tasks = tasks.filter(function (task) {
+    return task.id !== id;
+  });
+  saveTasks();
+  renderTasks();
+}
+
+// ===========================
+// Set the Active Filter
+// ===========================
+function setFilter(filter) {
+  currentFilter = filter;
+
+  // Update the active class on filter buttons
+  filterButtons.forEach(function (btn) {
+    if (btn.getAttribute('data-filter') === filter) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+
+  renderTasks();
+}
+
+
