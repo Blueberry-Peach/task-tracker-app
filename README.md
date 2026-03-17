@@ -28,8 +28,6 @@ A simple, beginner-friendly task management application built with **vanilla HTM
 | **JavaScript (ES5+)** | Application logic, DOM manipulation, localStorage API |
 | **Google Fonts** | Inter typeface for modern typography |
 
-> **No frameworks, no build tools, no dependencies.** Just open `index.html` in a browser.
-
 ---
 
 ## 🚀 Installation
@@ -181,5 +179,3 @@ Use the [Conventional Commits](https://www.conventionalcommits.org/) format:
 This project is created for educational purposes as part of a Software Engineering course.
 
 ---
-
-> Built with ❤️ using vanilla HTML, CSS & JavaScript.
