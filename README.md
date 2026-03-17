@@ -2,8 +2,6 @@
 
 A simple, beginner-friendly task management application built with **vanilla HTML, CSS, and JavaScript**. Designed as a final project for a Software Engineering course, this app demonstrates fundamental front-end development concepts including DOM manipulation, event handling, local storage, and responsive design — without any frameworks or libraries.
 
-![Task Tracker Screenshot](docs/screenshot.png)
-
 ---
 
 ## ✨ Features
