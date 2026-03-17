@@ -1,0 +1,190 @@
+/* ===========================
+   CSS Variables & Reset
+   =========================== */
+:root {
+  --color-bg: #0f0f1a;
+  --color-surface: #1a1a2e;
+  --color-surface-hover: #22223a;
+  --color-primary: #6c63ff;
+  --color-primary-hover: #5a52d5;
+  --color-accent: #ff6b6b;
+  --color-accent-hover: #e05555;
+  --color-success: #2ecc71;
+  --color-text: #e0e0e0;
+  --color-text-muted: #888;
+  --color-border: #2a2a40;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --transition: 0.25s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(108, 99, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(255, 107, 107, 0.06) 0%, transparent 50%);
+}
+
+/* ===========================
+   App Container
+   =========================== */
+.app-container {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* ===========================
+   Header
+   =========================== */
+.app-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* ===========================
+   Task Form
+   =========================== */
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.task-input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.task-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.task-input:focus {
+  border-color: var(--color-primary);
+}
+
+/* Input error state — shown when validation fails */
+.task-input.input-error {
+  border-color: var(--color-accent);
+  animation: shake 0.35s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-6px); }
+  40%      { transform: translateX(6px); }
+  60%      { transform: translateX(-4px); }
+  80%      { transform: translateX(4px); }
+}
+
+/* Validation message */
+.validation-msg {
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  margin-bottom: 16px;
+  padding-left: 4px;
+  transition: opacity var(--transition);
+}
+
+.validation-msg.hidden {
+  display: none;
+}
+
+/* ===========================
+   Buttons
+   =========================== */
+.btn {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  border-radius: var(--radius);
+  transition: background var(--transition), transform var(--transition), opacity var(--transition);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-add {
+  padding: 14px 24px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.btn-add:hover {
+  background: var(--color-primary-hover);
+}
+
+/* ===========================
+   Filter Bar
+   =========================== */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.btn-filter {
+  padding: 8px 16px;
+  font-size: 0.82rem;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+.btn-filter:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+.btn-filter.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.task-count {
+  margin-left: auto;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
