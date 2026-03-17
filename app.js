@@ -150,4 +150,51 @@ function setFilter(filter) {
   renderTasks();
 }
 
+// ===========================
+// Event Listeners
+// ===========================
 
+// Handle form submit to add a task
+taskForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const text = taskInput.value.trim();
+
+  // Show validation message if input is empty
+  if (text === '') {
+    validationMsg.classList.remove('hidden');   // show the warning
+    taskInput.classList.add('input-error');      // red border + shake
+    taskInput.focus();
+    return;
+  }
+
+  // Input is valid — hide any previous warning
+  validationMsg.classList.add('hidden');
+  taskInput.classList.remove('input-error');
+
+  addTask(text);
+  taskInput.value = '';
+  taskInput.focus();
+});
+
+// Hide validation message as soon as the user starts typing
+taskInput.addEventListener('input', function () {
+  if (taskInput.value.trim() !== '') {
+    validationMsg.classList.add('hidden');
+    taskInput.classList.remove('input-error');
+  }
+});
+
+// Handle filter button clicks
+filterButtons.forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    const filter = btn.getAttribute('data-filter');
+    setFilter(filter);
+  });
+});
+
+// ===========================
+// Initialize the App
+// ===========================
+loadTasks();
+renderTasks();
